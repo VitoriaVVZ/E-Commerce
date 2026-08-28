@@ -21,4 +21,10 @@ public class PedidoController {
     public ResponseEntity<?> saveOrder(@RequestBody PedidoDTO dto){
         return ResponseEntity.ok(service.criarPedido(dto));
     }
+
+    @DeleteMapping("/{id{")
+    public ResponseEntity<?> delOrder(@PathVariable long id){
+        service.deletarPedido(id);
+        return ResponseEntity.ok("Apagado com sucesso");
+    }
 }
