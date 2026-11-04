@@ -24,4 +24,8 @@ public class UsuarioService {
         repo.save(usuario);
         return "Usuario criado com sucesso!" ;
     }
+    public Usuario buscarPorEmail(String email) {
+        return (Usuario) repo.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+    }
 }
